@@ -1,0 +1,153 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: rgb(111, 173, 158);
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Judul di tengah atas dengan animasi popup */
+.title-1 {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50px);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  animation: popupDown 1s ease-out forwards;
+}
+
+/* Animasi popup dari atas */
+@keyframes popupDown {
+  0% {
+    transform: translateX(-50%) translateY(-80px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) translateY(10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.title-1 h1 {
+  font-size: 80px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  -webkit-text-stroke: black 4px;
+}
+
+/* Tampilan blur background di tengah */
+.background-blur {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Form login */
+.login-opsi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Teks “Masukkan Username” di atas input */
+.login label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards 0.4s;
+}
+
+/* Animasi input muncul dari bawah */
+.login input {
+  padding: 10px;
+  width: 200px;
+  border: 2px solid rgba(128, 128, 128, 0.5);
+  border-radius: 10px;
+  background: transparent;
+  color: rgb(99, 97, 97);
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+
+  /* animasi popup dari bawah */
+  transform: translateY(40px);
+  opacity: 0;
+  animation: popupUp 0.8s ease-out forwards 0.6s;
+}
+
+@keyframes popupUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tombol Play */
+.button {
+  margin-top: 15px;
+  background: #383838;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  size: 200px;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: popupUp 0.8s ease-out forwards 0.8s;
+}
+
+.button:hover {
+  background: #616161;
+  transform: scale(1.05);
+}
+
+/* Game area disembunyikan dulu */
+.main-game {
+  display: none;
+}
